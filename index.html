@@ -100,11 +100,35 @@
             </article>
         </div>
 
+        <div class="card" id="conditional-render-component">
+            <header>{{ title }}</header>
+            <article>
+                <div>
+                    <input id="conditionalRenderMovieName" v-on:keypress.enter="addMovie" />
+                    <button v-on:click="addMovie">Add movie</button>
+                </div>
+                <template v-if="movies.length > 0">
+                    <h4>Movie list</h4>
+                    <ul>
+                        <li v-for="(movie, index) in movies">
+                            <button v-on:click="deleteMovie(index)">X</button>
+                            {{ movie.title }} - 
+                            <button v-on:click="addScore(index, -1)" v-show="movie.score > 1">-</button> 
+                            {{ movie.score }}
+                            <button v-on:click="addScore(index, 1)" v-show="movie.score < 10">+</button>
+                        </li>
+                    </ul>
+                </template>
+                <p v-else>No movies to show ;(</p>
+            </article>
+        </div>
+
         <script type="text/javascript" src="src/basic-component.js"></script>
         <script type="text/javascript" src="src/list-component.js"></script>
         <script type="text/javascript" src="src/filters.js"></script>
         <script type="text/javascript" src="src/computed-props.js"></script>
         <script type="text/javascript" src="src/watchers.js"></script>
         <script type="text/javascript" src="src/attrs-classes-styles.js"></script>
+        <script type="text/javascript" src="src/conditional-render.js"></script>
     </body>
 </html>
