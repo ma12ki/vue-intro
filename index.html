@@ -134,6 +134,29 @@
             </article>
         </div>
 
+        <div class="card" id="inputs-component">
+            <header>{{ title }}</header>
+            <article>
+                <label><input type="checkbox" v-model="checked" /> {{ checked ? 'checked' : 'unchecked' }}</label>
+                <hr />
+                <template v-for="movie in movies">
+                    <label><input type="radio" v-bind:value="movie" v-model="chosenMovie" />{{ movie }}</label>
+                </template>
+                <p>Chosen movie: {{ chosenMovie }}</p>
+                <hr />
+                <select v-model="selectedGenres" multiple>
+                    <option v-for="genre in genres" v-bind:value="genre.id">{{ genre.name }}</option>
+                </select>
+                <p>Selected genres: {{ selectedGenres }}</p>
+                <hr />
+                <input type="text" v-model="singleLine" />
+                <p>{{ singleLine }}</p>
+                <hr />
+                <textarea v-model="multiLine" placeholder="such lines!"></textarea>
+                <p style="white-space: pre">{{ multiLine }}</p>
+            </article>
+        </div>
+
         <script type="text/javascript" src="src/basic-component.js"></script>
         <script type="text/javascript" src="src/list-component.js"></script>
         <script type="text/javascript" src="src/filters.js"></script>
@@ -142,5 +165,6 @@
         <script type="text/javascript" src="src/attrs-classes-styles.js"></script>
         <script type="text/javascript" src="src/conditional-render.js"></script>
         <script type="text/javascript" src="src/dom-events.js"></script>
+        <script type="text/javascript" src="src/inputs.js"></script>
     </body>
 </html>
