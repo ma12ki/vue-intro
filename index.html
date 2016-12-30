@@ -38,9 +38,25 @@
                 </ul>
             </article>
         </div>
+
+        <div class="card" id="computed-props-component">
+            <header>{{ title }}</header>
+            <article>
+                <ul>
+                    <li v-for="(movie, index) in movies">
+                        {{ movie.title }} - <button v-on:click="addScore(index, -1)">-</button> {{ movie.score }} <button v-on:click="addScore(index, 1)">+</button>
+                    </li>
+                </ul>
+                <ul>
+                    <li>Average score: {{ avgScore }}</li>
+                    <li>Total movies: {{ totalMovies }}</li>
+                </ul>
+            </article>
+        </div>
         
         <script type="text/javascript" src="src/basic-component.js"></script>
         <script type="text/javascript" src="src/list-component.js"></script>
         <script type="text/javascript" src="src/filters.js"></script>
+        <script type="text/javascript" src="src/computed-props.js"></script>
     </body>
 </html>
