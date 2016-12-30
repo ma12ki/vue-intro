@@ -1,14 +1,33 @@
 <!doctype html>
 <html>
     <head>
+        <meta charset="utf-8" />
         <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="src/common.css" />
     </head>
     <body>
-        <div id="card">
+        <div class="card" id="basic-component">
             <header>{{ title }}</header>
-            <div v-html="content"></div>
+            <article v-html="content"></article>
+        </div>
+
+        <div class="card" id="list-component">
+            <header>{{ title }}</header>
+            <article>
+                <div>
+                    <input id="itemName" v-on:keypress.enter="addItem" />
+                    <button v-on:click="addItem">Add item</button>
+                </div>
+                <ul>
+                    <li v-for="(item, index) in items">
+                        <button v-on:click="deleteItem(index)">X</button>
+                        {{ item.text }}
+                    </li>
+                </ul>
+            </article>
         </div>
         
         <script type="text/javascript" src="src/basic-component.js"></script>
+        <script type="text/javascript" src="src/list-component.js"></script>
     </body>
 </html>
