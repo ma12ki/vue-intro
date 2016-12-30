@@ -26,8 +26,21 @@
                 </ul>
             </article>
         </div>
+
+        <div class="card" id="filters-component">
+            <header>{{ title | capitalize }}</header>
+            <article>
+                <ul>
+                    <li v-for="(movie, index) in movies">
+                        <h4>{{ movie.title | capitalize }} ({{ movie.year }})</h4>
+                        <a :href="movie.title | lowercase | imdbSearchUrl" target="_blank">{{ movie.title | lowercase | imdbSearchUrl }}</a>
+                    </li>
+                </ul>
+            </article>
+        </div>
         
         <script type="text/javascript" src="src/basic-component.js"></script>
         <script type="text/javascript" src="src/list-component.js"></script>
+        <script type="text/javascript" src="src/filters.js"></script>
     </body>
 </html>
