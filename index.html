@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8" />
         <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
+        <script type="text/javascript" src="node_modules/underscore/underscore.js"></script>
         <link rel="stylesheet" href="src/common.css" />
     </head>
     <body>
@@ -53,10 +54,21 @@
                 </ul>
             </article>
         </div>
+
+        <div class="card" id="watchers-component">
+            <header>{{ title }}</header>
+            <article>
+                <div>
+                    <input id="input" v-model="input" /> Debounced input value: {{ inputLabel }}
+                </div>
+                <button v-bind:disabled="buttonDisabled">Do nothing</button>
+            </article>
+        </div>
         
         <script type="text/javascript" src="src/basic-component.js"></script>
         <script type="text/javascript" src="src/list-component.js"></script>
         <script type="text/javascript" src="src/filters.js"></script>
         <script type="text/javascript" src="src/computed-props.js"></script>
+        <script type="text/javascript" src="src/watchers.js"></script>
     </body>
 </html>
