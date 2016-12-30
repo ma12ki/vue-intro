@@ -1,0 +1,15 @@
+.attrs-classes-styles-btn {
+    display: block;
+}
+
+.attrs-classes-styles-btn.large {
+    font-size: 3em;
+}
+
+.attrs-classes-styles-btn.rounded {
+    border-radius: 10px;
+}
+
+#attrs-classes-styles-component li {
+    border: none;
+}

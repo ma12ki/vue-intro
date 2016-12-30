@@ -4,7 +4,8 @@
         <meta charset="utf-8" />
         <script type="text/javascript" src="node_modules/vue/dist/vue.js"></script>
         <script type="text/javascript" src="node_modules/underscore/underscore.js"></script>
-        <link rel="stylesheet" href="src/common.css" />
+        <link rel="stylesheet" href="src/css/common.css" />
+        <link rel="stylesheet" href="src/css/attrs-classes-styles.css" />
     </head>
     <body>
         <div class="card" id="basic-component">
@@ -54,7 +55,7 @@
                 </ul>
             </article>
         </div>
-
+        
         <div class="card" id="watchers-component">
             <header>{{ title }}</header>
             <article>
@@ -64,11 +65,46 @@
                 <button v-bind:disabled="buttonDisabled">Do nothing</button>
             </article>
         </div>
-        
+
+        <div class="card" id="attrs-classes-styles-component">
+            <header>{{ title }}</header>
+            <article>
+                <button class="attrs-classes-styles-btn"
+                        v-bind:class="[sizeToggle ? 'large' : '', {rounded: isRounded}]"
+                        v-bind:style="styles"
+                        v-bind:disabled="disabled">{{ title }}</button>
+                <hr />
+                <div>
+                    <h5>Options</h5>
+                    <ul>
+                        <li>
+                            <label><input type="checkbox" v-model="sizeToggle" /> large</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" v-model="isRounded" /> rounded</label>
+                        </li>
+                        <li>
+                            <label><input type="checkbox" v-model="disabled" /> disabled</label>
+                        </li>
+                        <li>
+                            <input type="text" v-model="backgroundColor" /> bg color
+                        </li>
+                        <li>
+                            <input type="text" v-model="fontColor" /> font color
+                        </li>
+                        <li>
+                            <input type="text" v-model="range" /> range
+                        </li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+
         <script type="text/javascript" src="src/basic-component.js"></script>
         <script type="text/javascript" src="src/list-component.js"></script>
         <script type="text/javascript" src="src/filters.js"></script>
         <script type="text/javascript" src="src/computed-props.js"></script>
         <script type="text/javascript" src="src/watchers.js"></script>
+        <script type="text/javascript" src="src/attrs-classes-styles.js"></script>
     </body>
 </html>
