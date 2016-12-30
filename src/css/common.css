@@ -28,3 +28,16 @@ ul li {
     margin: 5px 0;
     padding: 5px;
 }
+
+.header-action {
+   float: right;
+   font-size: 0.8em;
+   text-decoration: underline;
+   font-style: italic;
+   color: darkblue;
+   cursor: pointer;
+}
+
+.header-action:hover {
+    color: blue;
+}

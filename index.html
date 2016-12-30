@@ -158,14 +158,18 @@
         </div>
 
         <div class="card" id="reusable-components-component">
-            <header>{{ title }}</header>
+            <header>{{ title }} <span class="header-action" v-on:click="toggleView">{{ toggleLabel }}</span></header>
             <article>
                 <ul>
                     <li v-for="movie in movies">
-                        <movie-voter v-bind:title="movie.title"
-                                     v-bind:initial-votes="movie.votes"
-                                     v-on:increment="incrementTotalVotes">
-                        </movie-voter>
+                        <keep-alive>
+                            <component v-bind:is="currentView" 
+                                    v-bind:title="movie.title"
+                                    v-bind:initial-votes="movie.votes"
+                                    v-bind:director="movie.director"
+                                    v-on:increment="incrementTotalVotes">
+                            </component>
+                        </keep-alive>
                     </li>
                 </ul>
                 <p>Total votes: {{ totalVotes }}</p>
@@ -175,6 +179,11 @@
         <script type="text/x-template" id="movie-voter">
             <div>
                 <button v-on:click="increment">{{ votes }}</button> {{ title }}
+            </div>
+        </script>
+
+        <script type="text/x-template" id="movie-show">
+            <div><b>{{ title }}</b> | <i>{{ director }}</i></div>
         </script>
 
         <script type="text/javascript" src="src/basic-component.js"></script>
