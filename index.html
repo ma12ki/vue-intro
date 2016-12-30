@@ -123,6 +123,17 @@
             </article>
         </div>
 
+        <div class="card" id="dom-events-component">
+            <header>{{ title }}</header>
+            <article>
+                <form v-on:submit.prevent="addIq">
+                    <input id="domEventsIq" v-model="iq" />
+                    <button v-bind:disabled="iq === ''">Add {{ iq }} IQ</button>
+                </form>
+                <p>You have {{ totalIq }} IQ</p>
+            </article>
+        </div>
+
         <script type="text/javascript" src="src/basic-component.js"></script>
         <script type="text/javascript" src="src/list-component.js"></script>
         <script type="text/javascript" src="src/filters.js"></script>
@@ -130,5 +141,6 @@
         <script type="text/javascript" src="src/watchers.js"></script>
         <script type="text/javascript" src="src/attrs-classes-styles.js"></script>
         <script type="text/javascript" src="src/conditional-render.js"></script>
+        <script type="text/javascript" src="src/dom-events.js"></script>
     </body>
 </html>
